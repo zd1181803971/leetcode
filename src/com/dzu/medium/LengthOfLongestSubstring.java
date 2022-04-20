@@ -14,32 +14,23 @@ public class LengthOfLongestSubstring {
 
     public static void main(String[] args) {
 
-        int count = lengthOfLongestSubstring("dvdf");
+        int count = lengthOfLongestSubstring("abcaerti");
         System.out.println(count);
     }
 
 
     public static int lengthOfLongestSubstring(String s) {
-        int count = 0;
-        int respCount = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        int max = 0;
+        int temp = 0;
         for (int i = 0; i < s.length(); i++) {
-            int tempI = i;
-            Map<String, Integer> map = new HashMap<>();
-
-            for (int j = 0; j < s.length(); j++) {
-                String si = String.valueOf(s.charAt(j));
-                if (map.containsKey(si)) {
-                    if (count > respCount) {
-                        respCount = count;
-                    }
-                    count = 1;
-                } else {
-                    map.put(si, 1);
-                    count++;
-                }
+            char c = s.charAt(i);
+            if (map.containsKey(c)) {
+                temp = Math.max(map.get(c) + 1, temp);
             }
-            s = s.substring(++tempI);
+            max = Math.max(max, i - temp + 1);
+            map.put(c, i);
         }
-        return Math.max(respCount, count);
+        return max;
     }
 }
