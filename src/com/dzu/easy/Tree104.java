@@ -28,7 +28,7 @@ public class Tree104 {
     public static void main(String[] args) {
     }
 
-    public int maxDepth(TreeNode root) {
+    public int maxDepth(TreeNode104 root) {
         if (root == null) {
             return 0;
         }
@@ -37,19 +37,19 @@ public class Tree104 {
 
 }
 
-class TreeNode {
+class TreeNode104 {
     int val;
-    TreeNode left;
-    TreeNode right;
+    TreeNode104 left;
+    TreeNode104 right;
 
-    TreeNode() {
+    TreeNode104() {
     }
 
-    TreeNode(int val) {
+    TreeNode104(int val) {
         this.val = val;
     }
 
-    TreeNode(int val, TreeNode left, TreeNode right) {
+    TreeNode104(int val, TreeNode104 left, TreeNode104 right) {
         this.val = val;
         this.left = left;
         this.right = right;

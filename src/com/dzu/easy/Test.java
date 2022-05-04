@@ -1,7 +1,5 @@
 package com.dzu.easy;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
 
 /**
  * @author by ZhaoDong
@@ -11,18 +9,15 @@ import java.util.HashMap;
  */
 public class Test {
     public static void main(String[] args) {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("123", null);
-        map.put("q", new BigDecimal("23"));
-        String q12 = (String) map.get("q");
-
-        if (map.get("q") instanceof String) {
-            String q = (String) map.get("q");
-            System.out.println(q);
+        hammingWeight(8);
+    }
+    public static int hammingWeight(int n) {
+        int ans = 0;
+        for (int i = 0; i < 32; i++) {
+            int as = n >> i;
+            int res = as & 1;
+            ans += res;
         }
-        if (map.get("q") instanceof BigDecimal) {
-            BigDecimal q = (BigDecimal) map.get("q");
-            System.out.println(q);
-        }
+        return ans;
     }
 }
