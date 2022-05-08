@@ -42,9 +42,11 @@ public class Test3 {
     public static void main(String[] args) {
 
         int i = lengthOfLongestSubstring("pwwpkpew");
+        test2("abcabcbb");
         System.out.println(i);
 
     }
+
     public static int lengthOfLongestSubstring(String s) {
 
         int maxLength = 0;
@@ -60,6 +62,21 @@ public class Test3 {
         }
 
         return maxLength;
+    }
 
+    public static int test2(String s) {
+        // 记录字符上一次出现的位置
+        int[] last = new int[128];
+
+        int maxLength = 0;
+        int start = 0; // 窗口开始位置
+        for (int end = 0; end < s.length(); end++) {
+            int index = s.charAt(end);
+            start = Math.max(start, last[index]);
+            maxLength = Math.max(maxLength, end - start + 1);
+            last[index] = end + 1;
+        }
+
+        return maxLength;
     }
 }
