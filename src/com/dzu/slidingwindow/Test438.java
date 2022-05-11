@@ -56,7 +56,7 @@ public class Test438 {
         Map<Character, Integer> map_p = new HashMap<>();
 
         for (int i = 0; i < p.length(); i++) {
-            map_p.put(s.charAt(i), 1);
+            map_p.put(s.charAt(i), map_p.getOrDefault(s.charAt(i), 0) + 1);
 
         }
         List<Integer> list = new ArrayList<>();
@@ -67,7 +67,8 @@ public class Test438 {
         //s = "cbaebabacd", p = "abc"
         for (int end = 0; end < s.length(); end++) {
             char str = s.charAt(end);
-            map.put(str, map.get(str) == null ? 1 : map.get(str) + 1);
+            map.put(str, map.getOrDefault(str, 0) + 1);
+
             if (map.equals(map_p)) {
                 list.add(start);
             }
@@ -98,7 +99,7 @@ public class Test438 {
              * "baa"
              * "aa"
              */
-            map_p.put(c, map_p.get(c) == null ? 1 : map_p.get(c) + 1);
+            map_p.put(c, map_p.getOrDefault(c, 0) + 1);
         }
 
         int start = 0;
@@ -106,7 +107,7 @@ public class Test438 {
         int length = s.length();
         for (int end = 0; end < length; end++) {
             char str = s.charAt(end);
-            map.put(str, map.get(str) == null ? 1 : map.get(str) + 1);
+            map.put(str, map.getOrDefault(str, 0) + 1);
 
             if (map_p.equals(map)) {
                 list.add(start);
